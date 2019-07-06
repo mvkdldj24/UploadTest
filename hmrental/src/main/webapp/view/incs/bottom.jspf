@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<div style="position:fixed; right:0; bottom: 30px; z-index: 1; ">
+		<a class="w3-button" href="#top"><span
+		class="w3-xlarge"> <i class="fa fa-chevron-circle-up"></i>
+	</span></a>
+</div>
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center" style="position: relative; bottom: 0px; left: 0; right: 0; ">
+
+	<a href="http://10.0.0.73:8990/hmrental/">홈페이지</a> |
+	<c:url value="/sidemain/agree" var="agree" />
+	<a href="${agree}">이용약관</a> |
+	<c:url value="/sidemain/pripol" var="pripol" />
+	<a href="${pripol}">개인정보취급방침</a>
+
+	<div>
+		<div style="text-align: left; font-size: 12px;">
+			<img src="${pageContext.request.contextPath}/img/bottom.jpg"
+				style="height: 120px; width: 200px; margin-bottom: -160px; margin-left: 30px;">
+
+			<div style="text-align: left; margin-left: 270px;">
+				<br>COMPANY : HMrental | Owner : YO | Company Registration
+				Number : 228-13-00125 <br>Address: 충청남도 천안시 서북구 성정공원5로 35 6층
+				TEL:041-561-1122 <br>Personal information manager :
+				hmrental@gmail.com <br>Mail-order business : 1566-4848
+				<p>
+				<p>CopyRight (C)2019 HMrental.inc. ALL Right Reserved.
+			</div>
+		</div>
+		
+	</div>
+</footer>
+</body>
+</html>
+
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- 컨트롤러 -->
+	<context:component-scan base-package="com.hmrental.ctrl"/>
+
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler/>
+    <mvc:resources location="/img/" mapping="/img/**"/>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
+	        <property name="prefix" value="/view/"/>
+	        <property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/*"></mvc:resources>
+	
+	<!-- 인터셉터 설정 -->
+	<!-- 1. 핵심코드 범위 
+			2. 공통코드 클래스-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/company/**"/>
+			<bean class="com.hmrental.ic.Ic" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+</beans>

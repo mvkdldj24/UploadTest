@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- 서비스 -->
+	<context:component-scan base-package="com.hmrental.service"/>
+	<!-- DAO -->
+	<context:component-scan base-package="com.hmrental.dao"/>
+	
+	<!-- 파일업로드 관련 빈 설정 -->
+	<!-- 파일용량관련 -->
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+		<property name="maxUploadSize" value="100000000" />
+	</bean>
+	<!-- upload 경로 -->
+	<bean id="ha_upath" class="java.lang.String">
+		<constructor-arg value="C:\\sts-bundle\\ws\\hmrental\\src\\main\\webapp\\img\\HA" />
+	</bean>
+	<bean id="f_upath" class="java.lang.String">
+		<constructor-arg value="C:\\sts-bundle\\ws\\hmrental\\src\\main\\webapp\\img\\f" />
+	</bean>
+	<bean id="h_upath" class="java.lang.String">
+		<constructor-arg value="C:\\sts-bundle\\ws\\hmrental\\src\\main\\webapp\\img\\health" />
+	</bean>
+	
+</beans>
