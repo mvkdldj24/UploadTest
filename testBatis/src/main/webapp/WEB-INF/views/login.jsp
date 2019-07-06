@@ -8,7 +8,7 @@
 
 <script>
 	function del(test_idx) {
-		if (confirm("정말 탈퇴하시겠습니까?")) {
+		if (confirm("정말 탈퇴하시겠습니까??")) {
 			location.href = "delete?test_idx=" + test_idx;
 			alert("완료되었습니다.?");
 			self.close();
