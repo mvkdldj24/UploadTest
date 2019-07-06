@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+
+
+ 		<insert id="pinsert" parameterType="product" useGeneratedKeys="false" >
+				INSERT INTO PRODUCT VALUES (seq_product.nextVal, #{p_company}, #{p_model}, #{p_title}, #{p_myear}, #{p_drive}, #{p_fuel}, #{p_color}, #{p_price}, #{p_mname})
+		</insert>
+		
+		<select id="select" resultType="product">
+				select c.p_name, p.p_price, p.p_mname, c.p_name, p.p_title from product p, car c where c.p_company = p.p_company and c.p_model = p.p_model
+		</select>
+ 
+
+</mapper>

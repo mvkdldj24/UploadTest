@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+	
+	<!-- 아이디중복체크 -->
+	<select id="checkId" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT TEST_ID FROM TEST_MBR WHERE TEST_ID = #{paramId}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertData" parameterType="test" useGeneratedKeys="false" >
+		INSERT INTO TEST_MBR VALUES ( seq_test_mbr.nextVal, #{test_id}, #{test_pwd}, #{test_mail}, #{test_phone} )
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="getData" parameterType="test" resultType="test">
+		SELECT * FROM TEST_MBR WHERE TEST_ID = #{id} AND TEST_PWD = #{pwd}
+	</select>
+	
+	<!-- 수정 -->
+	<update id="update" parameterType="test">
+		UPDATE TEST_MBR SET TEST_PWD =#{test_pwd}, TEST_MAIL =#{test_mail}, TEST_PHONE=#{test_phone} WHERE TEST_IDX = #{test_idx}
+	</update>
+		
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM TEST_MBR WHERE TEST_IDX = #{test_idx}
+	</delete>
+	
+	<insert id="w_insert" parameterType="test">
+		INSERT INTO WRITTABLE VALUES (seq_writ.nextVal, #{w_title}, #{w_content}, #{w_date}, #{w_time}, #{w_writer}, #{test_idx})
+	</insert>
+	
+	<select id="w_list" resultType="board">
+		select * from writtable order by w_no asc
+	</select>
+	
+	<select id="mbr_list" resultType="test">
+		select * from test_mbr		
+	</select>
+	
+	<select id="w_dt" parameterType="int" resultType="board">
+		SELECT * FROM WRITTABLE WHERE W_NO= #{w_no}	
+	</select>
+		
+
+</mapper>

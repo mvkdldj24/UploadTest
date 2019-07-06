@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<!-- 컨트롤러에서 사용할 수 있는 DAO 객체 생성 J_LDAO jl_dao = new J_LDAO(); -->
+
+	<bean id="test_dao" class="com.test.dao.TestDAO">
+
+		<property name="sqlSession" ref="sqlSessionBean"></property>
+	</bean>
+
+</beans>
+
+
+
+
+
+
+
